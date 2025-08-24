@@ -47,7 +47,7 @@ body {
 }
 
 .utility-nav a {
-  color: var(--on-dark);
+  color: darkblue;
   text-decoration: none;
   font-size: 15px;
   opacity: .95;
