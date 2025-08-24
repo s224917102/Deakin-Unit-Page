@@ -60,7 +60,7 @@ body {
 
 /* ============== Hero band ============== */
 .hero {
-  background: darkblue;
+  background: var(--teal);
   box-shadow: 0 1px 0 var(--rule);
 }
 
