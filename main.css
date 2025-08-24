@@ -1,19 +1,150 @@
+/* ========= Reset & base ========= */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #2d2d2d;
+  line-height: 1.5;
+  background: #fff;
+}
 
+/* Containers */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
 
-h1 {
-  font-size: 40px;
-  font-family: Arial
+/* Theme colors */
+:root {
+  --teal-dark: #0b5e67;  /* utility bar */
+  --teal: #0a7a83;       /* hero band */
+  --on-dark: #ffffff;
+  --rule: rgba(0,0,0,.08);
 }
-h2 {
-  font-size: 25px;
-  font-family: Arial
+
+/* ============== Utility bar ============== */
+.utility {
+  background: var(--teal-dark);
 }
-h3 {
-  font-family: Arial
+.utility-nav {
+  display: flex;
+  gap: clamp(18px, 3vw, 36px);
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px 0;
 }
-p {
+.utility-nav a {
+  color: var(--on-dark);
+  text-decoration: none;
+  font-size: 15px;
+  opacity: .95;
+}
+.utility-nav a:hover,
+.utility-nav a:focus {
+  text-decoration: underline;
+}
+
+/* ============== Hero band ============== */
+.hero {
+  background: var(--teal);
+  box-shadow: 0 1px 0 var(--rule);
+}
+.hero-inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto; /* title left, badge right */
+  align-items: center;
+  padding: clamp(25px, 4vw, 20px) 0 clamp(25px, 6vw, 20px);
+}
+.hero-title {
+  margin: 0;
+  color: var(--on-dark);
+  font-weight: 300; /* light style */
+  letter-spacing: .3px;
+  font-size: clamp(32px, 6vw, 25px);
+}
+
+/* ============== Circular logo badge ============== */
+.logo-badge { position: relative; height: 0; }
+.badge {
+  position: absolute;
+  right: clamp(8px, 4vw, 40px);
+  bottom: calc(-1 * clamp(22px, 6vw, 65px));
+  width: clamp(90px, 12vw, 132px);
+  height: clamp(90px, 12vw, 132px);
+  /* background: #fff; clean circle background */
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  /* box-shadow: 0 6px 18px rgba(0,0,0,.15); */
+}
+.badge img {
+  width: 61%;
+  height: auto;
+  display: block;
+  border-radius: 50%;       /* crops any corner edges */
+  background: transparent;  /* prevents white fill */
+  object-fit: contain;      /* scales properly */
+}
+
+/* ============== Main content ============== */
+.page {
+  padding: clamp(24px, 4vw, 40px) 0 64px;
+}
+.crumbs {
   font-size: 14px;
-  font-family: Arial
+  color: #6a6f75;
+  margin: 12px 0 8px;
+}
+.unit-title {
+  font-size: clamp(28px, 4.5vw, 48px);
+  line-height: 1.15;
+  font-weight: 700;
+  margin: 8px 0 20px;
+  color: #555;
+}
+.card {
+  border: 1px solid #e6eaee;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #fff;
+}
+.card > header {
+  background: #f3f6f8;
+  padding: 12px 16px;
+  font-weight: 600;
+}
+.row {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  border-top: 1px solid #eef2f5;
+}
+.cell { padding: 12px 16px; }
+.label {
+  background: #fafcfd;
+  color: #47525e;
 }
 
-
+/* ============== Responsive tweaks ============== */
+@media (max-width: 720px) {
+  .utility-nav {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 14px;
+  }
+  .hero-inner {
+    grid-template-columns: 1fr;
+  }
+  .badge {
+    right: 50%;
+    transform: translateX(50%); /* center logo on mobile */
+  }
+  .row {
+    grid-template-columns: 1fr;
+  }
+  .label {
+    border-bottom: 1px solid #eef2f5;
+  }
+}
