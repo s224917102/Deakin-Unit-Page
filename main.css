@@ -47,7 +47,7 @@ body {
 }
 
 .utility-nav a {
-  color: darkblue;
+  color:white;
   text-decoration: none;
   font-size: 15px;
   opacity: .95;
@@ -60,7 +60,7 @@ body {
 
 /* ============== Hero band ============== */
 .hero {
-  background: var(--teal);
+  background: darkblue;
   box-shadow: 0 1px 0 var(--rule);
 }
 
